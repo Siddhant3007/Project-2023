@@ -1,0 +1,31 @@
+body {
+    background-image: url('https://image.slidesdocs.com/responsive-images/slides/7-simple-line-department-review-summary-powerpoint-background_e36972fd2e__960_540.jpg');
+    background-size: cover;
+    background-position: center;
+  }
+  .review-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 0 auto;
+    width: 80%;
+  }
+  .review-box {
+    border: 1px solid #ddd;
+    padding: 15px;
+    margin-bottom: 15px;
+    width: 45%;
+    background-color: rgba(255, 255, 255, 0.7); /* add a semi-transparent background to make text readable */
+  }
+  .star-rating {
+    font-size: 20px;
+    color: #f1c40f; /* yellow color for stars */
+  }
+  h1 {
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif
+    color: #101010; /* white color for text */
+  }
+  .review-text {
+    font-family: 'Playfair Display', serif; /* Playfair Display font */
+  }

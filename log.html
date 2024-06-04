@@ -1,0 +1,135 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/login_user.css">
+  <title>Login Page</title>
+ 
+</head>
+<body> 
+  <div class="container">
+    <h2>Login</h2>
+    <form action="#">
+      <input type="text" id="Username" name="Username"placeholder="Username" required><br>
+      <input type="text" id="email" name="email"placeholder="email" required><br>
+      <input type="password" id="password" name="password" placeholder="Password" required><br>
+      <input type="submit" id="login" name="login" href="/index.html" >
+    </form>
+    <p>Don't have an account? <a href="signup.html">Create one</a></p>
+  </div>
+</body>
+
+<script type="module">
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-app.js";
+  import { database ,set,ref,update} from "https://www.gstatic.com/firebasejs/10.10.0/firebase-database.js";
+  import { getAuth, createUserWithEmailAndPassword,signInWithEmailAndPassword,signOut } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-auth";
+
+
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+
+  // Your web app's Firebase configuration
+  const firebaseConfig = {
+    apiKey: "AIzaSyAz3PMK9CJ8YIG50NEX3n1sf5zVuJvVmkg",
+    authDomain: "on-demand-experts.firebaseapp.com",
+    databaseURL: "https://on-demand-experts-default-rtdb.firebaseio.com",
+    projectId: "on-demand-experts",
+    storageBucket: "on-demand-experts.appspot.com",
+    messagingSenderId: "180761161794",
+    appId: "1:180761161794:web:e00a2eb9e2dd298d1e3ddb"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const database= getdatabase(app);
+  const auth = getAuth();
+//   signUp.addEventListener('click',(e)=> {
+
+//        var email = document.getElementsById('email').value;
+//         var password = document.getElementsById('password').value;
+//          var username = document.getElementsById('username').value;
+
+
+//     createUserWithEmailAndPassword(auth, email, password)
+//       .then((userCredential) => {
+//       { Signed up}
+//       const user = userCredential.user;
+//        set(ref(database,'users/' +user.uid),{
+//                username:username,
+//                 email:email
+//       })
+//        alert('user created!')
+       
+//        })
+//         .catch((error) => {
+//     const errorCode = error.code;
+//       const errorMessage = error.message;
+
+//       alert (errorMessage);
+       
+//     });
+
+
+//});
+
+  login.addEventListener ('click',(e)=>{
+   
+    var email = document.getElementsById('email').value;
+    var password = document.getElementsById('password').value;
+    signInWithEmailAndPassword(auth, email, password)
+    .then((userCredential) => {
+      // Signed in 
+      const user = userCredential.user;
+
+      const dt=new Date();
+      update(ref(database,'users/' +user.uid),{
+        last_login:username,
+       
+      }) 
+
+      alert('User Loged in! ')
+      // ...
+    })
+    .catch((error) => {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+
+      alert (errorMessage);
+    });
+
+  
+  
+  });
+  
+  const user = auth.currentUser;
+ onAuthStateChanged(auth, (user) => {
+    if (user) {
+      // User is signed in, see docs for a list of available properties
+      // https://firebase.google.com/docs/reference/js/auth.user
+      const uid = user.uid;
+      // ...
+    } else {
+      // User is signed out
+      // ...
+    }
+  });
+
+  logout.addEventListener('click',(e)=> {
+
+  signOut(auth).then(() => {
+    alert('user loged out');
+    // Sign-out successful.
+  }).catch((error) => {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+
+    alert (errorMessage);
+    // An error happened.
+  });
+
+});
+  
+</script>
+</html> -->
